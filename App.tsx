@@ -16,6 +16,7 @@ import SovereignCompassPage from './components/pages/SovereignCompassPage';
 import TazkiyyahPage from './components/pages/TazkiyyahPage';
 import AttributeCompassPage from './components/pages/AttributeCompassPage';
 import ScholasticBridgePage from './components/pages/ScholasticBridgePage';
+import AppsPage from './components/pages/AppsPage';
 import ParentsSafeguardingPage from './components/pages/ParentsSafeguardingPage';
 import FoundingEssayPage from './components/pages/FoundingEssayPage';
 import FoundationAndStewardshipPage from './components/pages/FoundationAndStewardshipPage';
@@ -113,6 +114,8 @@ const App: React.FC = () => {
           return <AttributeCompassPage />;
         case Page.SCHOLASTIC_BRIDGE:
           return <ScholasticBridgePage />;
+        case Page.APPS:
+          return <AppsPage setCurrentPage={handlePageChange} />;
         case Page.PARENTS_SAFEGUARDING:
           return <ParentsSafeguardingPage setCurrentPage={handlePageChange} />;
         case Page.FOUNDING_ESSAY:

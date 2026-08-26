@@ -18,6 +18,7 @@ export enum Page {
   TAZKIYYAH = 'tazkiyyah',
   ATTRIBUTE_COMPASS = 'attribute-compass',
   SCHOLASTIC_BRIDGE = 'scholastic-bridge',
+  APPS = 'apps',
   PARENTS_SAFEGUARDING = 'parents-safeguarding',
   FOUNDING_ESSAY = 'the-work-of-becoming',
   FOUNDATION_STEWARDSHIP = 'foundation-and-stewardship',

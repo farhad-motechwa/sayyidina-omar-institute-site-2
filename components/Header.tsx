@@ -78,7 +78,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) =
   ];
 
   const frameworkItems = [
-    { name: 'The Sovereign Compass', page: Page.COMPASS, route: '/compass', desc: 'Where are you today?' },
+    { name: 'The Sovereign Compass', page: Page.APPS, route: '/apps', desc: 'Now in the Gravity app' },
     { name: 'The Tazkiyyah Framework', page: Page.TAZKIYYAH, route: '/tazkiyyah', desc: 'What is this stage of life for?' },
   ];
 
@@ -86,6 +86,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) =
     { name: 'Articles & Reflections', page: Page.RESOURCES, route: '/resources', desc: 'Curated essays and guides' },
     { name: 'SOI Radio', page: Page.RADIO, route: '/radio', desc: 'Continuous 24/7 broadcast' },
     { name: 'Events & Seminars', page: Page.EVENTS, route: '/events', desc: 'Upcoming circles & talks' },
+    { name: 'Apps', page: Page.APPS, route: '/apps', desc: 'Gravity & Daily Sunnah — install free' },
   ];
 
   const isProgrammesActive = [
@@ -94,7 +95,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) =
   ].includes(currentPage);
 
   const isResourcesActive = [
-    Page.RESOURCES, Page.RADIO, Page.EVENTS
+    Page.RESOURCES, Page.RADIO, Page.EVENTS, Page.APPS
   ].includes(currentPage);
 
   const isBooksActive = [
