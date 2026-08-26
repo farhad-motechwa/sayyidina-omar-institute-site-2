@@ -1,0 +1,8 @@
+{
+  "name": "Sayyidina Omar Institute for Character and Leadership",
+  "description": "A mentorship hub helping young Muslims in Perth grow into people of taqwa, courage, justice and service, inspired by the legacy of Sayyidina Omar al-Khattab RA.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Amiri:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-arabic: "Amiri", serif;
+  --color-parchment: #FAF7F2;
+  --color-parchment-dark: #121417;
+  --color-charcoal: #181A1D;
+  --color-heritage-gold: #C5A059;
+  --color-heritage-gold-dark: #9A7B3E;
+  --color-stone-border: #E5E0D8;
+  --color-forest-green: #143626;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-slate-100 antialiased selection:bg-amber-500/20 selection:text-amber-300;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+
+  /* Accessibility focus ring */
+  *:focus-visible {
+    outline: 2px solid #C5A059;
+    outline-offset: 2px;
+  }
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to right, rgba(197, 160, 89, 0.4), rgba(197, 160, 89, 0.1)) 1;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
