@@ -8,6 +8,7 @@ import {
   ArrowRight,
   Compass,
   BookOpen,
+  ScrollText,
   GraduationCap,
   Share,
   PlusSquare,
@@ -68,6 +69,23 @@ const apps: AppEntry[] = [
       'Short reflection and one practice',
       'Private on-device journal',
       'Works fully offline',
+    ],
+  },
+  {
+    name: 'Daily Adhkar',
+    tagline: 'One remembrance. Carried through the day.',
+    description:
+      'A daily remembrance drawn from Imam al-Nawawi\'s Kitab al-Adhkar, with its source, context and a private space to reflect. Build a steady practice through one verified remembrance each day.',
+    href: 'https://adhkar.sayyidinaomarinstitute.au',
+    icon: <ScrollText className="w-7 h-7" />,
+    badge: 'Installable App',
+    installable: true,
+    features: [
+      'Arabic, transliteration and translation',
+      'Source notes and background context',
+      'Searchable collection of verified adhkar',
+      'Private on-device journal',
+      'Works offline once installed',
     ],
   },
   {
@@ -151,7 +169,7 @@ const faqs = [
   {
     icon: <WifiOff className="w-5 h-5" />,
     q: 'Do they work offline?',
-    a: 'Yes. Once installed, both Gravity and Daily Sunnah work without a connection. You will need to be online the first time you open them, and occasionally afterwards to receive updates.',
+    a: 'Yes. Once installed, Gravity, Daily Sunnah and Daily Adhkar work without a connection. You will need to be online the first time you open them, and occasionally afterwards to receive updates.',
   },
   {
     icon: <RefreshCw className="w-5 h-5" />,

@@ -86,7 +86,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) =
     { name: 'Articles & Reflections', page: Page.RESOURCES, route: '/resources', desc: 'Curated essays and guides' },
     { name: 'SOI Radio', page: Page.RADIO, route: '/radio', desc: 'Continuous 24/7 broadcast' },
     { name: 'Events & Seminars', page: Page.EVENTS, route: '/events', desc: 'Upcoming circles & talks' },
-    { name: 'Apps', page: Page.APPS, route: '/apps', desc: 'Gravity & Daily Sunnah — install free' },
+    { name: 'Apps', page: Page.APPS, route: '/apps', desc: 'Gravity, Daily Sunnah & Daily Adhkar — install free' },
   ];
 
   const isProgrammesActive = [
