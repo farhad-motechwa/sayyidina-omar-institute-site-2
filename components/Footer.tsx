@@ -1,7 +1,7 @@
 import React from 'react';
 import { Page } from '../types';
 import { siteConfig } from '../data/siteData';
-import { BookOpen, Mail, MapPin, Heart, ShieldCheck, ExternalLink } from 'lucide-react';
+import { BookOpen, Mail, MapPin, Heart, ShieldCheck, ExternalLink, Phone } from 'lucide-react';
 
 interface FooterProps {
   setCurrentPage: (page: Page) => void;
@@ -140,6 +140,15 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                 >
                   <span>{siteConfig.contactEmail}</span>
                   <ExternalLink className="w-3 h-3 text-slate-500" />
+                </a>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Phone className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <a
+                  href={`tel:${siteConfig.contactPhoneTel}`}
+                  className="hover:text-amber-300 transition-colors"
+                >
+                  <span>{siteConfig.contactPhone}</span>
                 </a>
               </div>
             </div>

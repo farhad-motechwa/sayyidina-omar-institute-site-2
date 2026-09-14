@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Page } from '../../types';
 import { siteConfig } from '../../data/siteData';
 import Button from '../ui/Button';
-import { Mail, MapPin, ExternalLink, CheckCircle2, Send, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, Phone, ExternalLink, CheckCircle2, Send, AlertCircle } from 'lucide-react';
 
 interface ContactPageProps {
   setCurrentPage?: (page: Page) => void;
@@ -95,6 +95,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                   <span className="font-semibold text-white block">Official Email</span>
                   <a href={`mailto:${siteConfig.contactEmail}`} className="text-amber-300 hover:underline text-xs">
                     {siteConfig.contactEmail}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Phone className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
+                <div>
+                  <span className="font-semibold text-white block">Official Contact Number</span>
+                  <a href={`tel:${siteConfig.contactPhoneTel}`} className="text-amber-300 hover:underline text-xs">
+                    {siteConfig.contactPhone}
                   </a>
                 </div>
               </div>
