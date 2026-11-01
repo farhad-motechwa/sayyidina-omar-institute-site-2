@@ -70,7 +70,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({ setCurrentPage }) 
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/10 text-amber-300 border border-amber-400/30 font-semibold uppercase tracking-widest">
             <Footprints className="w-3.5 h-3.5 text-amber-400" /> Interactive Guide
           </span>
-          <span className="text-slate-400 font-sans">Shāfiʿī madhhab · 12 movements</span>
+          <span className="text-slate-400 font-sans">Shāfiʿī madhhab · All five prayers</span>
         </div>
 
         <div className="space-y-2">
@@ -78,7 +78,7 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({ setCurrentPage }) 
             Ṣalāh, Step by Step
           </h2>
           <p className="text-sm sm:text-base text-slate-300 font-serif leading-relaxed italic max-w-3xl">
-            See each posture of the prayer, what is recited, and which parts are rukn or sunnah
+            Follow each prayer rakʿah by rakʿah: every posture, what is recited, and which parts are rukn or sunnah
           </p>
         </div>
 

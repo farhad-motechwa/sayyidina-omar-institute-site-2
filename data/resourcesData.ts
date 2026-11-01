@@ -7,7 +7,7 @@ export const resourcesData: ResourceItem[] = [
     category: "Guide",
     date: "November 2026",
     author: "Sayyidina Omar Institute",
-    summary: "The twelve movements of the prayer in the Shāfiʿī madhhab, with an animated figure, recitations and video demonstrations.",
+    summary: "Each of the five daily prayers, rakʿah by rakʿah, in the Shāfiʿī madhhab, with an animated figure, recitations and the matching moment in the MCAS video.",
     readTime: "Interactive",
     page: Page.SALAH_GUIDE,
     route: "/resources/salah-guide"

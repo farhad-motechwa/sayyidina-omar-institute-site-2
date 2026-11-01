@@ -17,7 +17,7 @@ export const SalahGuidePage: React.FC<SalahGuidePageProps> = ({ setCurrentPage }
       metaDesc.name = 'description';
       document.head.appendChild(metaDesc);
     }
-    metaDesc.content = 'An interactive, step-by-step guide to the movements of ṣalāh in the Shāfiʿī madhhab: postures, recitations, and what is obligatory or recommended.';
+    metaDesc.content = 'Follow each of the five daily prayers rakʿah by rakʿah, from the niyyah to the salām, in the Shāfiʿī madhhab: postures, recitations, and what is obligatory or recommended.';
 
     return () => {
       if (metaDesc && prevDesc) {
