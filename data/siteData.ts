@@ -20,6 +20,8 @@ export const foundationRecord = {
   directExpenditureStatus: "Being documented",
 };
 
+export const LEARNING_PORTAL_URL = "https://learn.sayyidinaomarinstitute.au/login/index.php";
+
 export const siteConfig = {
   name: "Sayyidina Omar Institute for Character and Leadership",
   shortName: "Sayyidina Omar Institute",
@@ -31,6 +33,7 @@ export const siteConfig = {
   safeguardingContactEmail: "safeguarding@sayyidinaomarinstitute.au",
   safeguardingContactName: "Safeguarding Lead (SOI Administration)",
   websiteUrl: "https://sayyidinaomarinstitute.au",
+  learningPortalUrl: LEARNING_PORTAL_URL,
   sovereignCompassAppUrl: "https://compass.sayyidinaomarinstitute.au",
   radioStreamUrl: "https://radio.sayyidinaomarinstitute.au/listen/sayyidina_omar_institute_radio/radio.mp3",
   substackUrl: "https://farhadomarstudios.substack.com/",

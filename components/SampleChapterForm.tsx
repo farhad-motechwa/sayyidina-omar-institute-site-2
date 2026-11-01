@@ -122,7 +122,7 @@ export const SampleChapterForm: React.FC<SampleChapterFormProps> = ({ sourcePage
               rel="noopener"
               className="text-amber-300 font-semibold underline hover:text-amber-200 inline-flex items-center gap-1"
             >
-              <span>A$59 direct ↗</span>
+              <span>A$70 direct ↗</span>
             </a>
           </div>
         </div>

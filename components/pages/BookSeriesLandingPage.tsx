@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Page } from '../../types';
-import { booksData, reclaimingEducationBook, seriesPurchaseOptions } from '../../data/booksData';
+import { booksData, reclaimingEducationBook, theMurabbiBook, seriesPurchaseOptions } from '../../data/booksData';
 import BookCover from '../BookCover';
 import Button from '../ui/Button';
 import SampleChapterForm from '../SampleChapterForm';
 import InquiryModal from '../InquiryModal';
 import { motion } from 'motion/react';
 import { 
-  ExternalLink, ArrowRight, CheckCircle2, Sparkles, ShoppingBag
+  ExternalLink, ArrowRight, CheckCircle2, Sparkles, ShoppingBag, FileText
 } from 'lucide-react';
 
 interface BookSeriesLandingPageProps {
@@ -35,9 +35,340 @@ export const BookSeriesLandingPage: React.FC<BookSeriesLandingPageProps> = ({ se
     }
   };
 
+  // Structured Data (JSON-LD) for Search Engine Optimization
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Book',
+        '@id': 'https://sayyidinaomarinstitute.au/books#the-murabbi',
+        'name': `${theMurabbiBook.title}: ${theMurabbiBook.subtitle}`,
+        'alternateName': theMurabbiBook.title,
+        'headline': theMurabbiBook.tagline,
+        'description': 'Teaching, Character and the Amanah of Guiding Others. Drawing upon the Qur’an, Sunnah, classical Islamic scholarship and contemporary educational research, Farhad Omar examines the responsibility of those entrusted with teaching and guiding others.',
+        'isbn': theMurabbiBook.isbnClean,
+        'numberOfPages': theMurabbiBook.pages,
+        'bookFormat': 'https://schema.org/Paperback',
+        'inLanguage': 'en',
+        'datePublished': '2026',
+        'bookEdition': theMurabbiBook.edition,
+        'author': {
+          '@type': 'Person',
+          'name': theMurabbiBook.author
+        },
+        'contributor': {
+          '@type': 'Person',
+          'name': 'Sheikh Yusuf Parker',
+          'jobTitle': 'Imam of Alhidayah Centre and Adviser to Sayyidina Omar Institute'
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': theMurabbiBook.publisher,
+          'url': 'https://sayyidinaomarinstitute.au'
+        },
+        'offers': {
+          '@type': 'Offer',
+          'price': theMurabbiBook.priceNumber,
+          'priceCurrency': 'AUD',
+          'availability': 'https://schema.org/InStock',
+          'url': theMurabbiBook.luluUrl
+        }
+      },
+      {
+        '@type': 'Book',
+        '@id': 'https://sayyidinaomarinstitute.au/books#reclaiming-education',
+        'name': reclaimingEducationBook.title,
+        'isbn': '9781326199272',
+        'numberOfPages': reclaimingEducationBook.pages,
+        'bookFormat': 'https://schema.org/Paperback',
+        'author': {
+          '@type': 'Person',
+          'name': reclaimingEducationBook.author
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': reclaimingEducationBook.publisher
+        }
+      },
+      {
+        '@type': 'BookSeries',
+        '@id': 'https://sayyidinaomarinstitute.au/books#how-you-see-yourself-at-30',
+        'name': 'How You See Yourself at 30',
+        'author': {
+          '@type': 'Person',
+          'name': 'Farhad Omar'
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'Sayyidina Omar Institute'
+        },
+        'hasPart': booksData.map((b) => ({
+          '@type': 'Book',
+          'name': b.title,
+          'isbn': b.isbn.replace(/-/g, ''),
+          'numberOfPages': b.pages
+        }))
+      }
+    ]
+  };
+
   return (
     <div className="space-y-16 md:space-y-24 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       
+      {/* SECTION 0: FEATURED NEW PUBLICATION — THE MURABBI */}
+      <section className="relative bg-slate-950 py-16 md:py-24 border-b border-amber-500/30 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(#fbbf24_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            
+            {/* Left Column: Book Cover in portrait aspect ratio (6 × 9 inches) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-5 flex flex-col items-center justify-center space-y-6"
+            >
+              <div className="w-full max-w-sm sm:max-w-md flex justify-center">
+                <BookCover 
+                  book={{
+                    title: theMurabbiBook.title,
+                    subtitle: theMurabbiBook.subtitle,
+                    tagline: theMurabbiBook.tagline,
+                    author: theMurabbiBook.author,
+                    format: theMurabbiBook.format,
+                    coverUrl: theMurabbiBook.coverUrl,
+                    altText: theMurabbiBook.altText,
+                    badge: 'FIRST EDITION 2026'
+                  }}
+                  size="xl"
+                  aspectRatio="6 / 9"
+                  className="shadow-2xl shadow-black/80"
+                />
+              </div>
+
+              {/* Specifications Card under cover */}
+              <div className="w-full max-w-sm sm:max-w-md bg-slate-900/80 border border-slate-800 rounded-xl p-4 text-xs text-slate-300 font-sans space-y-2.5">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-800">
+                  <span className="text-slate-400">Pages</span>
+                  <span className="font-semibold text-white">{theMurabbiBook.pages} pages</span>
+                </div>
+                <div className="flex items-center justify-between pb-2 border-b border-slate-800">
+                  <span className="text-slate-400">Format & Size</span>
+                  <span className="font-semibold text-white">{theMurabbiBook.format} ({theMurabbiBook.size})</span>
+                </div>
+                <div className="flex items-center justify-between pb-2 border-b border-slate-800">
+                  <span className="text-slate-400">ISBN</span>
+                  <span className="font-mono text-amber-300">{theMurabbiBook.isbn}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-400">Availability</span>
+                  <span className="font-medium text-emerald-400">{theMurabbiBook.availability}</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Column: Publication heading, description, key information and purchase button */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="lg:col-span-7 space-y-6 text-left"
+            >
+              {/* Publication Heading & Header block */}
+              <div className="space-y-3">
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-400/10 text-amber-300 border border-amber-400/30 uppercase tracking-widest font-sans">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                  {theMurabbiBook.sectionHeading}
+                </span>
+
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-[1.15]">
+                  {theMurabbiBook.title}
+                </h1>
+                <p className="text-xl sm:text-2xl font-serif text-amber-400 italic">
+                  {theMurabbiBook.subtitle}
+                </p>
+                <p className="text-sm sm:text-base text-slate-300 font-sans font-medium">
+                  {theMurabbiBook.tagline}
+                </p>
+              </div>
+
+              {/* Book Description / Editorial Text */}
+              <div className="pt-4 border-t border-slate-800/80 space-y-4">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white text-left">
+                  {theMurabbiBook.editorialHeading}
+                </h3>
+                
+                <div className="space-y-4 text-slate-300 font-light leading-relaxed text-sm sm:text-base">
+                  <p>
+                    {theMurabbiBook.editorialParagraphs[0]}
+                  </p>
+                  <p className="italic text-slate-200">
+                    {theMurabbiBook.editorialParagraphs[1]}
+                  </p>
+                  <p>
+                    {theMurabbiBook.editorialParagraphs[2]}
+                  </p>
+                  <p>
+                    {theMurabbiBook.editorialParagraphs[3]}
+                  </p>
+                  <p>
+                    {theMurabbiBook.editorialParagraphs[4]}
+                  </p>
+                  <p>
+                    {theMurabbiBook.editorialParagraphs[5]}
+                  </p>
+                  <p>
+                    {theMurabbiBook.editorialParagraphs[6]}
+                  </p>
+                  <p className="pt-1 text-slate-100 font-medium">
+                    At its heart is a simple proposition: <strong className="text-amber-300 font-semibold font-serif">the teacher is part of the lesson.</strong>
+                  </p>
+                </div>
+              </div>
+
+              {/* Key Publication Details */}
+              <div className="p-5 rounded-2xl bg-slate-900/90 border border-amber-500/20 shadow-xl space-y-3">
+                <div className="text-xs font-bold uppercase tracking-widest text-amber-400 font-sans">
+                  Key Publication Information
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-300 font-sans">
+                  <div>
+                    <span className="text-slate-500 block text-[10px] uppercase">Author</span>
+                    <span className="font-medium text-slate-200">{theMurabbiBook.author}</span>
+                  </div>
+                  <div>
+                    <span className="text-slate-500 block text-[10px] uppercase">Publisher / Imprint</span>
+                    <span className="font-medium text-slate-200">{theMurabbiBook.publisher}</span>
+                  </div>
+                  <div>
+                    <span className="text-slate-500 block text-[10px] uppercase">Edition</span>
+                    <span className="font-medium text-slate-200">{theMurabbiBook.edition}</span>
+                  </div>
+                  <div>
+                    <span className="text-slate-500 block text-[10px] uppercase">Format & Size</span>
+                    <span className="font-medium text-slate-200">{theMurabbiBook.format}, {theMurabbiBook.size} ({theMurabbiBook.pages} pages)</span>
+                  </div>
+                  <div>
+                    <span className="text-slate-500 block text-[10px] uppercase">ISBN</span>
+                    <span className="font-mono text-amber-300">{theMurabbiBook.isbn}</span>
+                  </div>
+                  <div>
+                    <span className="text-slate-500 block text-[10px] uppercase">Price</span>
+                    <span className="font-medium text-slate-200">{theMurabbiBook.priceAUD}</span>
+                  </div>
+                  <div className="sm:col-span-2">
+                    <span className="text-slate-500 block text-[10px] uppercase">Foreword</span>
+                    <span className="font-medium text-slate-200">{theMurabbiBook.foreword}</span>
+                  </div>
+                  <div className="sm:col-span-2">
+                    <span className="text-slate-500 block text-[10px] uppercase">Availability</span>
+                    <span className="font-medium text-emerald-400">{theMurabbiBook.availability}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Two Clear Options: Read Chapter One (Free PDF) & Complete Book */}
+              <div className="pt-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
+                  
+                  {/* Option 1: Read or Download Chapter One — Free */}
+                  <div className="bg-slate-900/90 border border-slate-800 hover:border-amber-500/40 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-xl">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-amber-400/10 text-amber-300 border border-amber-400/30 uppercase tracking-wider font-sans">
+                          <FileText className="w-3 h-3 text-amber-400" />
+                          COMPLIMENTARY CHAPTER
+                        </span>
+                      </div>
+                      
+                      <h3 className="text-lg sm:text-xl font-serif font-bold text-white leading-snug">
+                        {theMurabbiBook.chapterOneHeading}
+                      </h3>
+                      
+                      <div className="space-y-3 text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+                        <p>{theMurabbiBook.chapterOneParagraphs[0]}</p>
+                        <p>{theMurabbiBook.chapterOneParagraphs[1]}</p>
+                        <p>{theMurabbiBook.chapterOneParagraphs[2]}</p>
+                      </div>
+                    </div>
+
+                    <div className="pt-6">
+                      <a
+                        href={theMurabbiBook.chapterOnePdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full"
+                      >
+                        <Button
+                          variant="secondary"
+                          className="w-full justify-center bg-slate-800/90 hover:bg-slate-800 text-amber-300 border border-amber-400/40 hover:border-amber-400 py-3 text-sm font-medium shadow-md transition-colors"
+                        >
+                          <FileText className="w-4 h-4 mr-2 text-amber-400 shrink-0" />
+                          <span>{theMurabbiBook.chapterOneButtonLabel}</span>
+                        </Button>
+                      </a>
+                      <p className="text-[11px] text-slate-400 font-light text-center mt-2">
+                        Complimentary PDF · 13 Pages · No sign-in required
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Option 2: Purchase the Complete Book — A$59.95 */}
+                  <div className="bg-gradient-to-b from-slate-900/95 to-slate-950 border border-amber-500/30 hover:border-amber-400/60 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-2xl relative">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-amber-400/20 text-amber-300 border border-amber-400/40 uppercase tracking-wider font-sans">
+                          <Sparkles className="w-3 h-3 text-amber-400" />
+                          COMPLETE EDITION
+                        </span>
+                      </div>
+
+                      <h3 className="text-lg sm:text-xl font-serif font-bold text-white leading-snug">
+                        {theMurabbiBook.continueHeading}
+                      </h3>
+
+                      <div className="space-y-3 text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+                        <p>{theMurabbiBook.continueParagraphs[0]}</p>
+                        <p>{theMurabbiBook.continueParagraphs[1]}</p>
+                      </div>
+                    </div>
+
+                    <div className="pt-6">
+                      <a
+                        href={theMurabbiBook.luluUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full"
+                      >
+                        <Button
+                          variant="primary"
+                          className="w-full justify-center bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3 text-sm shadow-lg shadow-amber-500/20 transition-colors"
+                        >
+                          <span>{theMurabbiBook.completeBookButtonLabel}</span>
+                          <ExternalLink className="w-4 h-4 ml-2 shrink-0" />
+                        </Button>
+                      </a>
+                      <p className="text-[11px] text-slate-400 font-light italic text-center mt-2">
+                        {theMurabbiBook.completeBookPrintNote}
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </motion.div>
+
+          </div>
+
+        </div>
+      </section>
+
       {/* SECTION A: HERO */}
       <section className="relative bg-slate-950 py-20 md:py-28 overflow-hidden border-b border-amber-500/20">
         <div className="absolute inset-0 bg-[radial-gradient(#fbbf24_1px,transparent_1px)] [background-size:24px_24px] opacity-5 pointer-events-none"></div>
@@ -72,7 +403,7 @@ export const BookSeriesLandingPage: React.FC<BookSeriesLandingPageProps> = ({ se
                   rel="noopener noreferrer"
                 >
                   <Button variant="primary" className="shadow-lg shadow-amber-500/20">
-                    <span>Order the Complete Set — A$59</span>
+                    <span>Order the Complete Set — A$70</span>
                     <ShoppingBag className="w-4 h-4 ml-2" />
                   </Button>
                 </a>
@@ -413,7 +744,7 @@ export const BookSeriesLandingPage: React.FC<BookSeriesLandingPageProps> = ({ se
                   {seriesPurchaseOptions.bundlePriceAUD}
                 </span>
                 <span className="text-[11px] text-slate-400 block">
-                  A$59 for all four, against A$70.76 buying them separately.
+                  A$70 for all four, against A$76 buying them separately.
                 </span>
               </div>
             </div>
@@ -425,7 +756,7 @@ export const BookSeriesLandingPage: React.FC<BookSeriesLandingPageProps> = ({ se
                 rel="noopener noreferrer"
                 className="w-full py-2.5 px-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs text-center transition-colors flex items-center justify-center gap-1.5 shadow-md"
               >
-                <span>Order the Complete Set — A$59</span>
+                <span>Order the Complete Set — A$70</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
 

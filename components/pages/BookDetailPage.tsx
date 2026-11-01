@@ -141,7 +141,7 @@ export const BookDetailPage: React.FC<BookDetailPageProps> = ({ bookSlug, setCur
                   rel="noopener noreferrer"
                   className="text-amber-400 font-semibold hover:underline inline-flex items-center gap-1"
                 >
-                  <span>The complete set is A$59 — A$17 less than buying them separately.</span>
+                  <span>The complete set is A$70 — A$6 less than buying them separately.</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
@@ -298,7 +298,7 @@ export const BookDetailPage: React.FC<BookDetailPageProps> = ({ bookSlug, setCur
               </a>
 
               <p className="text-[10px] text-slate-400 font-light leading-snug">
-                Reading all four? <a href={seriesPurchaseOptions.completeSetStripeUrl} target="_blank" rel="noopener noreferrer" className="text-amber-400 font-semibold hover:underline">The complete set is A$59 — A$17 less.</a>
+                Reading all four? <a href={seriesPurchaseOptions.completeSetStripeUrl} target="_blank" rel="noopener noreferrer" className="text-amber-400 font-semibold hover:underline">The complete set is A$70 — A$6 less.</a>
               </p>
 
               <p className="text-[10px] text-slate-500 font-light leading-snug pt-1">

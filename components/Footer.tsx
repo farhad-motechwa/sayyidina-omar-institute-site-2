@@ -3,6 +3,8 @@ import { Page } from '../types';
 import { siteConfig } from '../data/siteData';
 import { BookOpen, Mail, MapPin, Heart, ShieldCheck, ExternalLink, Phone } from 'lucide-react';
 
+const LEARNING_PORTAL_URL = 'https://learn.sayyidinaomarinstitute.au/login/index.php';
+
 interface FooterProps {
   setCurrentPage: (page: Page) => void;
 }
@@ -37,6 +39,15 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
               Programmes
             </h4>
             <ul className="space-y-2 text-sm">
+              <li>
+                <a 
+                  href={LEARNING_PORTAL_URL} 
+                  className="hover:text-amber-300 transition-colors text-amber-300 font-medium inline-flex items-center gap-1.5"
+                >
+                  <span>Learning Portal</span>
+                  <span className="text-[10px] uppercase tracking-wider text-amber-400/80 px-1.5 py-0.5 rounded bg-amber-400/10 border border-amber-400/20">Login</span>
+                </a>
+              </li>
               <li>
                 <button onClick={() => setCurrentPage(Page.HYSY30)} className="hover:text-amber-300 transition-colors">
                   How You See Yourself at 30
@@ -100,6 +111,11 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
               <li>
                 <button onClick={() => setCurrentPage(Page.RESOURCES)} className="hover:text-amber-300 transition-colors">
                   Articles & Resources
+                </button>
+              </li>
+              <li>
+                <button onClick={() => setCurrentPage(Page.SALAH_GUIDE)} className="hover:text-amber-300 transition-colors">
+                  Ṣalāh Guide
                 </button>
               </li>
               <li>
@@ -232,6 +248,9 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
             <button onClick={() => setCurrentPage(Page.PRIVACY)} className="hover:text-amber-400 transition-colors">
               Privacy
             </button>
+            <a href={LEARNING_PORTAL_URL} className="hover:text-amber-400 transition-colors">
+              Learning Portal
+            </a>
           </div>
         </div>
 

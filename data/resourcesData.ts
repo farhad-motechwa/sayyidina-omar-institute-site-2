@@ -1,6 +1,17 @@
-import { ResourceItem } from '../types';
+import { ResourceItem, Page } from '../types';
 
 export const resourcesData: ResourceItem[] = [
+  {
+    id: "res-salah-guide",
+    title: "Ṣalāh, Step by Step: An Interactive Guide",
+    category: "Guide",
+    date: "November 2026",
+    author: "Sayyidina Omar Institute",
+    summary: "The twelve movements of the prayer in the Shāfiʿī madhhab, with an animated figure, recitations and video demonstrations.",
+    readTime: "Interactive",
+    page: Page.SALAH_GUIDE,
+    route: "/resources/salah-guide"
+  },
   {
     id: "res-1",
     title: "Who Are You Becoming by 30? A Framework for Youth Character",

@@ -258,10 +258,95 @@ export const otherWorksByAuthor = [
 export const seriesPurchaseOptions = {
   completeSetStripeUrl: 'https://buy.stripe.com/cNieVd2BTbH15PNdzE0ZW02',
   directStripeUrl: 'https://buy.stripe.com/cNieVd2BTbH15PNdzE0ZW02',
-  bundlePriceAUD: 'A$59 AUD',
+  bundlePriceAUD: 'A$70 AUD',
   fromPriceAUD: 'from A$16.49',
   perthLocation: 'Available at the Alhidayah Centre, Wangara, and at Institute events.',
   amazonUrl: 'https://www.amazon.com.au/stores/Mr-Farhad-Omar/author/B0FN1W5Z2C',
   luluUrl: 'https://www.lulu.com/search?contributor=Farhad+Omar',
   substackUrl: 'https://farhadomarstudios.substack.com'
 };
+
+export interface TheMurabbiBook {
+  title: string;
+  subtitle: string;
+  tagline: string;
+  author: string;
+  publisher: string;
+  edition: string;
+  foreword: string;
+  format: string;
+  size: string;
+  pages: number;
+  isbn: string;
+  isbnClean: string;
+  priceAUD: string;
+  priceNumber: string;
+  availability: string;
+  luluUrl: string;
+  buttonLabel: string;
+  printOnDemandNote: string;
+  coverUrl: string;
+  altText: string;
+  sectionHeading: string;
+  editorialHeading: string;
+  editorialParagraphs: string[];
+  chapterOnePdfUrl: string;
+  chapterOneHeading: string;
+  chapterOneParagraphs: string[];
+  chapterOneButtonLabel: string;
+  continueHeading: string;
+  continueParagraphs: string[];
+  completeBookButtonLabel: string;
+  completeBookPrintNote: string;
+}
+
+export const theMurabbiBook: TheMurabbiBook = {
+  title: 'The Murabbi',
+  subtitle: 'From Knowledge to Formation',
+  tagline: 'Teaching, Character and the Amanah of Guiding Others',
+  author: 'Farhad Omar',
+  publisher: 'Sayyidina Omar Institute',
+  edition: 'First Edition, 2026',
+  foreword: 'Sheikh Yusuf Parker, Imam of Alhidayah Centre and Adviser to Sayyidina Omar Institute',
+  format: 'Paperback, perfect bound',
+  size: '6 × 9 inches',
+  pages: 512,
+  isbn: '978-1-7639773-0-3',
+  isbnClean: '9781763977303',
+  priceAUD: 'A$59.95, excluding shipping',
+  priceNumber: '59.95',
+  availability: 'Published and available to order through Lulu',
+  luluUrl: 'https://www.lulu.com/shop/farhad-omar/the-murabbi/paperback/product-zmjmrv4.html',
+  buttonLabel: 'Purchase the Complete Book — A$59.95',
+  printOnDemandNote: 'Printed on demand by Lulu. Shipping charges are calculated at checkout.',
+  coverUrl: '/images/books/the-murabbi-cover.jpg',
+  altText: 'The Murabbi: From Knowledge to Formation by Farhad Omar, First Edition book cover.',
+  sectionHeading: 'NEW PUBLICATION | FIRST EDITION 2026',
+  editorialHeading: 'The Teacher Is Part of the Lesson',
+  editorialParagraphs: [
+    'We spend years learning how to teach. We prepare lessons, develop curricula and assess what our students have understood. Yet another question remains: what are our students learning from the person standing before them?',
+    'The Murabbi: From Knowledge to Formation begins with that question.',
+    'Drawing upon the Qur’an, Sunnah, classical Islamic scholarship and contemporary educational research, Farhad Omar examines the responsibility of those entrusted with teaching and guiding others.',
+    'Across 24 chapters, the book explores the relationship between knowledge, character, intention and the ethical use of authority. It examines how educators listen, question, correct, encourage and accompany learners without assuming ownership of their choices or spiritual development.',
+    'The book also turns the examination towards the educator. What happens when our advice is ignored? When our authority is challenged? When we make mistakes? How do we distinguish between serving a learner and needing to be seen as indispensable?',
+    'Developed alongside the Murabbi Formation Programme at Sayyidina Omar Institute, this work is intended for teachers, Islamic educators, mentors, parents and community leaders.',
+    'The First Edition includes a foreword by Sheikh Yusuf Parker, who reviewed the manuscript and reflects on the responsibility of educators to embody the knowledge they convey.',
+    'At its heart is a simple proposition: the teacher is part of the lesson.'
+  ],
+  chapterOnePdfUrl: '/downloads/the-murabbi-chapter-one.pdf',
+  chapterOneHeading: 'Read Chapter One — The Teacher Is Part of the Lesson',
+  chapterOneParagraphs: [
+    'Before deciding whether this book is for you, I invite you to read its opening chapter.',
+    'We spend years learning how to teach, but how often do we consider what our students learn from our character, conduct and presence?',
+    'Chapter One introduces the central argument of The Murabbi: the teacher is not separate from the lesson. The teacher is part of it.'
+  ],
+  chapterOneButtonLabel: 'Read Chapter One — Free PDF',
+  continueHeading: 'Continue with the Complete Book',
+  continueParagraphs: [
+    'Chapter One begins the conversation. Across 24 chapters, The Murabbi examines the responsibility of teaching and guiding others through the Qur’an, Sunnah, Islamic scholarship and contemporary educational research.',
+    'The complete 512-page paperback includes a foreword by Sheikh Yusuf Parker, Imam of Alhidayah Centre and Adviser to Sayyidina Omar Institute.'
+  ],
+  completeBookButtonLabel: 'Purchase the Complete Book — A$59.95',
+  completeBookPrintNote: 'Printed on demand by Lulu. Shipping charges are calculated at checkout.'
+};
+

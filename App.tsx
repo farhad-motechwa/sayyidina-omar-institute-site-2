@@ -28,6 +28,7 @@ import ExpressInterestPage from './components/pages/ExpressInterestPage';
 import PrivacyPage from './components/pages/PrivacyPage';
 import SupportPage from './components/pages/SupportPage';
 import GalleryPage from './components/pages/GalleryPage';
+import SalahGuidePage from './components/pages/SalahGuidePage';
 import NotFoundPage from './components/pages/NotFoundPage';
 import { RadioPlayer } from './components/RadioPlayer';
 
@@ -138,6 +139,8 @@ const App: React.FC = () => {
           return <SupportPage setCurrentPage={handlePageChange} />;
         case Page.GALLERY:
           return <GalleryPage />;
+        case Page.SALAH_GUIDE:
+          return <SalahGuidePage setCurrentPage={handlePageChange} />;
         case Page.NOT_FOUND:
           return <NotFoundPage setCurrentPage={handlePageChange} />;
         default:

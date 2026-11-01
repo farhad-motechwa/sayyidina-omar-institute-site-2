@@ -5,6 +5,7 @@ interface BookCoverProps {
   book: BookItem | {
     title: string;
     subtitle: string;
+    tagline?: string;
     badge?: string;
     author?: string;
     bookNumber?: number;
@@ -12,8 +13,10 @@ interface BookCoverProps {
     coverWrapUrl?: string;
     coverUrl?: string;
     altText?: string;
+    format?: string;
+    edition?: string;
   };
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
   showHoverEffect?: boolean;
   useImageWrap?: boolean;
@@ -38,17 +41,19 @@ export const BookCover: React.FC<BookCoverProps> = ({
   const getBadgeText = () => {
     if ('badge' in book && book.badge) return book.badge;
     if ('bookNumber' in book && book.bookNumber) return `BOOK ${book.bookNumber}`;
-    return 'ESSENTIAL READ';
+    return 'FIRST EDITION 2026';
   };
 
   const badgeText = getBadgeText();
   const authorText = 'author' in book && book.author ? book.author : 'FARHAD OMAR';
 
   // Determine aspect ratio:
+  // For 6x9 inch book (The Murabbi), aspect ratio is 6/9 (2/3)
   // For A4 single cover image (e.g. Reclaiming Education), aspect ratio is 210/297 (1:1.414)
   // For standard series books (HYSY30), aspect ratio is 5/8
   const isA4 = 'format' in book && typeof book.format === 'string' && book.format.includes('A4');
-  const defaultRatio = isA4 ? '210 / 297' : '5 / 8';
+  const isSixByNine = 'format' in book && typeof book.format === 'string' && (book.format.includes('6 × 9') || book.format.includes('6x9'));
+  const defaultRatio = isA4 ? '210 / 297' : (isSixByNine ? '6 / 9' : '5 / 8');
   const currentAspectRatio = aspectRatio || defaultRatio;
 
   // Size configurations adjusting width
@@ -56,6 +61,7 @@ export const BookCover: React.FC<BookCoverProps> = ({
     sm: 'w-28 sm:w-36 md:w-40',
     md: 'w-48 sm:w-56 md:w-64',
     lg: 'w-64 sm:w-80 md:w-96',
+    xl: 'w-64 sm:w-72 md:w-80 lg:w-92 max-w-full',
   }[size];
 
   // 1. Direct single cover image (front cover)
@@ -120,7 +126,7 @@ export const BookCover: React.FC<BookCoverProps> = ({
       } ${sizeClasses} ${className}`}
       style={{
         boxShadow: '0 12px 32px -8px rgba(0,0,0,0.8), 0 4px 12px -2px rgba(217, 119, 6, 0.15)',
-        aspectRatio: '5 / 8'
+        aspectRatio: currentAspectRatio
       }}
     >
       {/* Book Spine Simulation & Gold Accent Bar */}

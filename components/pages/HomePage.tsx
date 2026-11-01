@@ -13,6 +13,8 @@ import {
   Radio, Compass, ExternalLink, CheckCircle2, ChevronRight, HelpCircle, ZoomIn, Moon
 } from 'lucide-react';
 
+const LEARNING_PORTAL_URL = 'https://learn.sayyidinaomarinstitute.au/login/index.php';
+
 interface HomePageProps {
   setCurrentPage: (page: Page, targetUrl?: string) => void;
 }
@@ -366,8 +368,53 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
         <CurrentTermWidget setCurrentPage={setCurrentPage} />
       </section>
 
+      {/* 3.5 LEARNING PORTAL CTA (CONTINUE YOUR LEARNING) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xl">
+          <div className="space-y-2 max-w-2xl">
+            <h2 className="text-xl sm:text-2xl font-serif font-bold text-white">
+              Continue your learning
+            </h2>
+            <p className="text-sm text-slate-300 font-light leading-relaxed">
+              Access your readings, session materials and reflections through the Institute's learning portal.
+            </p>
+            <p className="text-xs text-slate-400 font-light pt-1">
+              Enrolled but can't log in?{' '}
+              <button
+                onClick={() => setCurrentPage(Page.CONTACT, '/contact')}
+                className="text-amber-300 hover:underline font-medium"
+              >
+                Contact us.
+              </button>
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 flex-shrink-0">
+            <a
+              href={LEARNING_PORTAL_URL}
+              className="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-semibold text-xs sm:text-sm font-sans transition-colors inline-flex items-center justify-center shadow-sm"
+            >
+              Log in to the Learning Portal
+            </a>
+            <button
+              onClick={() => {
+                const el = document.getElementById('programmes');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  setCurrentPage(Page.PROGRAMMES, '/programmes');
+                }
+              }}
+              className="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-400 text-slate-200 hover:text-white font-medium text-xs sm:text-sm font-sans transition-colors inline-flex items-center justify-center"
+            >
+              View programmes
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* 4. FEATURED PROGRAMMES OVERVIEW */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <section id="programmes" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-amber-400">
             Formation Pathway

@@ -31,6 +31,7 @@ export enum Page {
   PRIVACY = 'privacy',
   GALLERY = 'gallery',
   NEWS = 'news',
+  SALAH_GUIDE = 'resources/salah-guide',
   NOT_FOUND = '404'
 }
 
@@ -57,6 +58,9 @@ export const getPageFromPath = (pathname: string): Page => {
   }
   if (clean === 'foundation-and-stewardship' || clean === 'foundation-stewardship') {
     return Page.FOUNDATION_STEWARDSHIP;
+  }
+  if (clean === 'resources/salah-guide' || clean === 'salah-guide') {
+    return Page.SALAH_GUIDE;
   }
 
   const values = Object.values(Page) as string[];
@@ -100,13 +104,15 @@ export interface LunarModuleData {
 export interface ResourceItem {
   id: string;
   title: string;
-  category: 'Article' | 'Reflection' | 'Curriculum Summary' | 'Document' | 'Podcast';
+  category: 'Article' | 'Reflection' | 'Curriculum Summary' | 'Document' | 'Podcast' | 'Guide';
   date: string;
   author?: string;
   summary: string;
   readTime?: string;
   downloadUrl?: string;
   externalUrl?: string;
+  page?: Page;
+  route?: string;
 }
 
 export interface EventItem {

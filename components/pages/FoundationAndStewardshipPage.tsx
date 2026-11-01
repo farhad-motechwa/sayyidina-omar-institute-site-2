@@ -216,7 +216,7 @@ export const FoundationAndStewardshipPage: React.FC<FoundationAndStewardshipPage
                   {item.data.title}
                 </h3>
                 <p className="text-[11px] font-sans text-slate-400">
-                  {item.type === 'reclaiming' ? 'A4 Monograph' : `Book ${item.data.bookNumber || idx}`}
+                  {item.type === 'reclaiming' ? 'A4 Monograph' : `Book ${'bookNumber' in item.data ? item.data.bookNumber : idx}`}
                 </p>
               </div>
             </div>

@@ -7,6 +7,8 @@ import {
   BookOpen, Compass, Layers, Radio, Calendar, FileText, Mail, Info, Sparkles
 } from 'lucide-react';
 
+const LEARNING_PORTAL_URL = 'https://learn.sayyidinaomarinstitute.au/login/index.php';
+
 interface HeaderProps {
   currentPage: Page;
   setCurrentPage: (page: Page, targetUrl?: string) => void;
@@ -84,6 +86,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) =
 
   const resourceItems = [
     { name: 'Articles & Reflections', page: Page.RESOURCES, route: '/resources', desc: 'Curated essays and guides' },
+    { name: 'Ṣalāh Guide', page: Page.SALAH_GUIDE, route: '/resources/salah-guide', desc: 'Interactive step-by-step prayer guide' },
     { name: 'SOI Radio', page: Page.RADIO, route: '/radio', desc: 'Continuous 24/7 broadcast' },
     { name: 'Events & Seminars', page: Page.EVENTS, route: '/events', desc: 'Upcoming circles & talks' },
     { name: 'Apps', page: Page.APPS, route: '/apps', desc: 'Gravity, Daily Sunnah & Daily Adhkar — install free' },
@@ -95,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) =
   ].includes(currentPage);
 
   const isResourcesActive = [
-    Page.RESOURCES, Page.RADIO, Page.EVENTS, Page.APPS
+    Page.RESOURCES, Page.SALAH_GUIDE, Page.RADIO, Page.EVENTS, Page.APPS
   ].includes(currentPage);
 
   const isBooksActive = [
@@ -331,6 +334,14 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) =
             >
               Contact
             </button>
+
+            {/* 8. Learning Portal */}
+            <a
+              href={LEARNING_PORTAL_URL}
+              className="px-3 py-1.5 rounded-md text-xs xl:text-sm font-medium border border-amber-400/35 text-amber-300 hover:text-white hover:bg-amber-400/10 hover:border-amber-400 transition-colors inline-flex items-center"
+            >
+              Learning Portal
+            </a>
           </nav>
 
           {/* Express Interest CTA Button */}
@@ -507,6 +518,17 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) =
               >
                 Contact
               </button>
+
+              {/* Learning Portal */}
+              <div className="pt-2">
+                <a
+                  href={LEARNING_PORTAL_URL}
+                  className="w-full px-3 py-2.5 rounded-md border border-amber-400/35 bg-amber-400/10 text-amber-300 hover:bg-amber-400/20 hover:text-white transition-colors flex items-center justify-between font-medium"
+                >
+                  <span>Learning Portal</span>
+                  <span className="text-xs text-amber-400/80">Login &rarr;</span>
+                </a>
+              </div>
             </div>
           </motion.div>
         )}
