@@ -71,25 +71,6 @@ export const getPageFromPath = (pathname: string): Page => {
   return Page.NOT_FOUND;
 };
 
-export interface WeeklyTheme {
-  weekNumber: number;
-  title: string;
-  focus: string;
-}
-
-export interface CurrentTermData {
-  termName: string;
-  moduleTitle: string;
-  lunarSeason: string;
-  dates: string;
-  venue: string;
-  sessionTime: string;
-  weeklyThemes: WeeklyTheme[];
-  registrationStatus: 'open' | 'upcoming' | 'closed';
-  expressionOfInterestUrl: string;
-  operationalNotes?: string;
-}
-
 export interface LunarModuleData {
   id: string;
   code: string;

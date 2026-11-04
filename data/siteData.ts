@@ -54,6 +54,23 @@ export const siteConfig = {
   paypalButtonImg: "https://storage.googleapis.com/sayyidina-omar-institute/images/Donate%20Button.png",
 };
 
+/**
+ * Single source of truth for the flagship programme's logistics.
+ * Rendered in the homepage fact strip and the current-term widget, so the
+ * age band, venue, time and fee cannot drift apart between the two.
+ */
+export const hysy30Facts = {
+  name: "How You See Yourself at 30",
+  ages: "Approximately 15–18 years",
+  venueName: "Alhidayah Centre",
+  venueAddress: "29 Berriman Drive, Wangara WA 6065",
+  venueMapUrl:
+    "https://www.google.com/maps/search/?api=1&query=Alhidayah+Centre%2C+29+Berriman+Drive%2C+Wangara+WA+6065",
+  schedule: "Saturdays, 11:30am – 1:00pm",
+  feePrimary: "Free for Alhidayah Centre registrants",
+  feeSecondary: "A$150 per term at other sites",
+};
+
 export const imageManifest = {
   logo: {
     src: "https://storage.googleapis.com/sayyidina-omar-institute/images/New%20Logo%203.png",

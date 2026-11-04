@@ -1,7 +1,6 @@
 import React from 'react';
 import { Page } from '../../types';
 import { siteConfig, imageManifest } from '../../data/siteData';
-import { CurrentTermWidget } from '../CurrentTermWidget';
 import Button from '../ui/Button';
 import { OptimizedImage } from '../ui/OptimizedImage';
 import { 
@@ -299,14 +298,6 @@ export const HYSY30Page: React.FC<HYSY30PageProps> = ({ setCurrentPage }) => {
             <span className="text-xs text-slate-200 font-medium">Service & Contribution</span>
           </div>
         </div>
-      </div>
-
-      {/* 7. CURRENT TERM SCHEDULE */}
-      <div className="space-y-4">
-        <h2 className="text-2xl font-serif font-bold text-white text-center">
-          Current Intake & Curriculum Schedule
-        </h2>
-        <CurrentTermWidget setCurrentPage={setCurrentPage} />
       </div>
 
     </div>
