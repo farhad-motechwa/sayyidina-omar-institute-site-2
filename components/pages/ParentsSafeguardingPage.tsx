@@ -121,15 +121,7 @@ export const ParentsSafeguardingPage: React.FC<ParentsSafeguardingPageProps> = (
         </div>
       </div>
 
-      {/* Policy Notice Placeholder */}
-      <div className="bg-slate-950/80 border border-slate-800/80 p-6 rounded-xl text-xs text-slate-400 space-y-2">
-        <span className="font-semibold text-amber-300 block">Formal Policy Status</span>
-        <p>
-          * Final policy wording to be approved by SOI and the host venue before publication.
-        </p>
-      </div>
-
-      {/* Designated Safeguarding Contact Placeholder */}
+      {/* Designated Safeguarding Contact */}
       <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8 space-y-4">
         <h3 className="text-xl font-serif font-bold text-white">Designated Safeguarding Lead</h3>
         <p className="text-sm text-slate-300 font-light">
