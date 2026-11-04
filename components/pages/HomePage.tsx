@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Page } from '../../types';
-import { siteConfig, imageManifest, foundationRecord } from '../../data/siteData';
+import { siteConfig, imageManifest, foundationRecord, hysy30Facts } from '../../data/siteData';
 import { booksData } from '../../data/booksData';
 import BookCover from '../BookCover';
 import { CurrentTermWidget } from '../CurrentTermWidget';
@@ -10,7 +10,8 @@ import { OptimizedImage } from '../ui/OptimizedImage';
 import { motion } from 'motion/react';
 import { 
   ArrowRight, ShieldCheck, Heart, Sparkles, Users, BookOpen, 
-  Radio, Compass, ExternalLink, CheckCircle2, ChevronRight, HelpCircle, ZoomIn, Moon
+  Radio, Compass, ExternalLink, CheckCircle2, ChevronRight, HelpCircle, ZoomIn, Moon,
+  MapPin, CalendarClock, Tag
 } from 'lucide-react';
 
 const LEARNING_PORTAL_URL = 'https://learn.sayyidinaomarinstitute.au/login/index.php';
@@ -60,6 +61,65 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
+
+            {/* Key facts: age · venue · schedule · fee */}
+            <motion.dl
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="mt-10 max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-xl overflow-hidden border border-slate-800 bg-slate-800 text-left"
+            >
+              <div className="bg-slate-950/90 px-5 py-4">
+                <dt className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-400">
+                  <Users className="w-3.5 h-3.5" aria-hidden="true" />
+                  Age
+                </dt>
+                <dd className="mt-1.5 text-sm text-slate-100 font-medium leading-snug">
+                  {hysy30Facts.ages}
+                </dd>
+              </div>
+
+              <div className="bg-slate-950/90 px-5 py-4">
+                <dt className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-400">
+                  <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
+                  Venue
+                </dt>
+                <dd className="mt-1.5 text-sm text-slate-100 font-medium leading-snug">
+                  {hysy30Facts.venueName}
+                  <a
+                    href={hysy30Facts.venueMapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-1 block text-xs font-normal text-slate-400 hover:text-amber-300 underline decoration-slate-600 underline-offset-2"
+                  >
+                    {hysy30Facts.venueAddress}
+                  </a>
+                </dd>
+              </div>
+
+              <div className="bg-slate-950/90 px-5 py-4">
+                <dt className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-400">
+                  <CalendarClock className="w-3.5 h-3.5" aria-hidden="true" />
+                  When
+                </dt>
+                <dd className="mt-1.5 text-sm text-slate-100 font-medium leading-snug">
+                  {hysy30Facts.schedule}
+                </dd>
+              </div>
+
+              <div className="bg-slate-950/90 px-5 py-4">
+                <dt className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-400">
+                  <Tag className="w-3.5 h-3.5" aria-hidden="true" />
+                  Fee
+                </dt>
+                <dd className="mt-1.5 text-sm text-slate-100 font-medium leading-snug">
+                  {hysy30Facts.feePrimary}
+                  <span className="mt-1 block text-xs font-normal text-slate-400">
+                    {hysy30Facts.feeSecondary}
+                  </span>
+                </dd>
+              </div>
+            </motion.dl>
           </motion.div>
 
           {/* Hero Banner Image */}
