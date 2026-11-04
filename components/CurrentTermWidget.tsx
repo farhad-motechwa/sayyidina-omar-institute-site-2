@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { currentTermData } from '../data/currentTerm';
+import { hysy30Facts } from '../data/siteData';
 import { Page } from '../types';
-import { Calendar, Clock, MapPin, Users, Sparkles, Mail, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, Sparkles, Mail, ShieldCheck, ArrowRight, Tag } from 'lucide-react';
 import Button from './ui/Button';
 import InquiryModal, { InquiryType } from './InquiryModal';
 
@@ -79,7 +80,7 @@ export const CurrentTermWidget: React.FC<CurrentTermWidgetProps> = ({ setCurrent
           <div>
             <p className="text-slate-400 text-xs font-medium uppercase tracking-wider">Venue</p>
             <p className="text-slate-200 font-medium text-xs mt-0.5">{currentTermData.venue}</p>
-            <p className="text-slate-400 text-[11px] mt-0.5">Retreat: 12–13 Sept 2026</p>
+            <p className="text-slate-400 text-[11px] mt-0.5">{hysy30Facts.venueAddress}</p>
           </div>
         </div>
 
@@ -87,9 +88,19 @@ export const CurrentTermWidget: React.FC<CurrentTermWidgetProps> = ({ setCurrent
           <Users className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
           <div>
             <p className="text-slate-400 text-xs font-medium uppercase tracking-wider">Ages & Delivery</p>
-            <p className="text-slate-200 font-medium text-xs mt-0.5">15–18 years</p>
+            <p className="text-slate-200 font-medium text-xs mt-0.5">{hysy30Facts.ages}</p>
             <p className="text-slate-400 text-[11px] mt-0.5">Parallel male & female circles</p>
           </div>
+        </div>
+      </div>
+
+      {/* Fee */}
+      <div className="flex items-start gap-3 rounded-xl border border-amber-400/25 bg-amber-400/5 p-4 mb-6">
+        <Tag className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" aria-hidden="true" />
+        <div>
+          <p className="text-amber-300 text-xs font-semibold uppercase tracking-wider">Fee</p>
+          <p className="text-slate-200 font-medium text-sm mt-0.5">{hysy30Facts.feePrimary}</p>
+          <p className="text-slate-400 text-xs mt-0.5">{hysy30Facts.feeSecondary}</p>
         </div>
       </div>
 
