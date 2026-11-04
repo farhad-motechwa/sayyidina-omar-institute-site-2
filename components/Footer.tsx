@@ -230,9 +230,18 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
         </div>
 
         {/* Footer Bottom Line */}
-        <div className="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 font-light gap-4">
-          <p>&copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
-          <div className="flex space-x-6">
+        <div className="pt-8 border-t border-slate-900 flex flex-col lg:flex-row justify-between items-center text-xs text-slate-400 font-light gap-4">
+          <div className="text-center lg:text-left space-y-1 max-w-lg">
+            <p>&copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
+            <p>
+              {siteConfig.shortName} is a registered business name of {siteConfig.legalEntityName}
+            </p>
+            <p>
+              <span className="whitespace-nowrap">ABN {siteConfig.abn}</span>
+              {!siteConfig.donationsTaxDeductible && ' · Contributions are not tax deductible.'}
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             <button onClick={() => setCurrentPage(Page.ABOUT)} className="hover:text-amber-400 transition-colors">
               About
             </button>
