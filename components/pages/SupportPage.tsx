@@ -15,7 +15,7 @@ export const SupportPage: React.FC<SupportPageProps> = ({ setCurrentPage }) => {
   const campaign = siteConfig.launchGoodCampaign;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 space-y-12">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-20 pb-28 space-y-12">
       
       {/* HEADER */}
       <header className="text-center max-w-3xl mx-auto space-y-4">
@@ -108,6 +108,17 @@ export const SupportPage: React.FC<SupportPageProps> = ({ setCurrentPage }) => {
           <ShieldCheck className="w-4 h-4 text-amber-400" />
           <span>All transactions are processed securely through encrypted channels.</span>
         </div>
+      </section>
+
+      {/* LEGAL ENTITY & DONATION STATUS */}
+      <section className="rounded-2xl border border-slate-800/80 bg-slate-950/40 p-5 space-y-1.5 text-xs text-slate-400 font-sans">
+        <p>
+          <span className="text-slate-300 font-medium">{siteConfig.shortName}</span> is a registered
+          business name of {siteConfig.legalEntityName} · ABN {siteConfig.abn}.
+        </p>
+        {!siteConfig.donationsTaxDeductible && (
+          <p>Contributions are not tax deductible.</p>
+        )}
       </section>
 
       {/* LINK TO FOUNDATION AND STEWARDSHIP */}

@@ -49,6 +49,9 @@ export const siteConfig = {
   headerInterestFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdjuNOdy5YQKoEAgBLUFJxNMvpKAwy8cRabeFLEUO6fKkLu4Q/viewform?usp=header", // Header Express Interest Form link
   hysy30InterestFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLScDp7jDR-5dcriKJXQ-fsh6nWR44e7XZk2_S0OKCZWdlO2Q9w/viewform?usp=publish-editor", // Express Interest for How You See Yourself at 30 Programme
   murabbiInterestFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfO2e5eQwFuCpet3RpVBDqzCENAjBRMpM2qES9xLU7wz1rN2Q/viewform?usp=header", // Express Interest for Murabbi Pathway form
+  abn: "44 922 062 745",
+  legalEntityName: "Mohammad Farhad Omar",
+  donationsTaxDeductible: false,
   logoUrl: "https://storage.googleapis.com/sayyidina-omar-institute/images/New%20Logo%203.png",
   stripeButtonImg: "https://storage.googleapis.com/sayyidina-omar-institute/images/Stripe%20Donate%20Button.png",
   paypalButtonImg: "https://storage.googleapis.com/sayyidina-omar-institute/images/Donate%20Button.png",
